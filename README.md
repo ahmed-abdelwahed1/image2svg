@@ -1,65 +1,89 @@
 # Image to SVG Converter
 
-This Python program converts raster images (JPG, PNG) into Scalable Vector Graphics (SVG) format using a simple graphical user interface (GUI).
+A professional desktop application for converting raster images (JPG, PNG) to SVG format using the powerful potrace algorithm.
 
 ## Features
 
-*   Converts JPG and PNG files to SVG.
-*   Uses `potrace` for bitmap tracing to generate vector shapes. Images are preprocessed (converted to grayscale) using `Pillow`.
-*   Simple and user-friendly interface built with Tkinter.
-*   Supports selecting single or multiple input files.
-*   Allows users to choose an output directory for the converted SVG files.
-*   Provides progress feedback during conversion.
-*   Displays clear status and error messages.
-*   Runs conversion in a separate thread to keep the GUI responsive.
+- Convert multiple images to SVG format in batch
+- Modern and intuitive user interface
+- Support for JPG and PNG input formats
+- SVG optimization options
+- Progress tracking and detailed error reporting
+- Professional logging system
 
-## Dependencies
+## Requirements
 
-The program requires the following dependencies to be installed:
+- Python 3.6 or higher
+- potrace (must be installed and available in system PATH)
+- Required Python packages:
+  - Pillow (PIL)
+  - tkinter (usually comes with Python)
 
-*   **Python 3:** The core programming language.
-*   **Tkinter:** Usually included with standard Python installations. If not, it might need to be installed separately (e.g., `sudo apt-get install python3-tk` on Debian/Ubuntu).
-*   **Pillow:** Python Imaging Library fork for image preprocessing.
-    ```bash
-    pip3 install Pillow
-    ```
-*   **potrace:** A command-line tool for tracing bitmaps.
-    ```bash
-    # On Debian/Ubuntu:
-    sudo apt-get update
-    sudo apt-get install potrace
+## Installation
 
-    # On macOS (using Homebrew):
-    brew install potrace
+1. Ensure you have Python 3.6+ installed on your system
+2. Install potrace:
+   - Windows: Download and install from [potrace website](http://potrace.sourceforge.net/)
+   - Linux: `sudo apt-get install potrace`
+   - macOS: `brew install potrace`
 
-    # On Windows:
-    # Download from http://potrace.sourceforge.net/#downloading
-    # Ensure the potrace.exe is in your system's PATH.
-    ```
+3. Install required Python packages:
 
-## Files
+   ```bash
+   pip install Pillow
+   ```
 
-*   `image_converter_core.py`: Contains the core logic for image conversion using `potrace`.
-*   `image_converter_gui.py`: Implements the Tkinter-based graphical user interface.
-*   `README.md`: This file.
+4. Clone or download this repository
 
-## How to Run
+## Usage
 
-1.  **Ensure all dependencies are installed** (Python 3, Tkinter, Pillow, potrace).
-2.  **Save the provided Python files** (`image_converter_core.py` and `image_converter_gui.py`) in the same directory.
-3.  **Open a terminal or command prompt**, navigate to the directory where you saved the files.
-4.  **Run the GUI script** using Python:
-    ```bash
-    python3 image_converter_gui.py
-    ```
-5.  **Use the application:**
-    *   Click "Select Files" to choose one or more JPG/PNG images.
-    *   Click "Select Directory" to choose where the output SVG files will be saved.
-    *   Click "Convert to SVG" to start the conversion process.
-    *   Monitor the progress bar and status messages for feedback.
+1. Run the application:
 
-## Notes
+   ```bash
+   python image_converter_gui.py
+   ```
 
-*   The current conversion process uses `potrace` on a grayscale version of the input image. This is effective for line art and shapes but will not preserve original colors directly in the SVG. For color vectorization, more complex techniques or different tools (like the initially attempted `vtracer`, if it can be made to work in your environment) would be needed.
-*   Error handling is included for unsupported file types and conversion failures.
+2. Using the application:
+   - Click "Select Files" to choose input images (JPG/PNG)
+   - Click "Select Directory" to choose output location
+   - (Optional) Configure conversion options
+   - Click "Convert to SVG" to start the conversion
 
+## Conversion Options
+
+- **Optimize SVG output**: When enabled, the generated SVG files will be optimized for size and performance
+
+## Error Handling
+
+The application provides detailed error messages for:
+
+- Invalid file formats
+- Conversion failures
+- System errors
+- Missing dependencies
+
+All errors are logged for debugging purposes.
+
+## Logging
+
+The application maintains detailed logs of all operations. Logs include:
+
+- File selection
+- Conversion progress
+- Success/failure status
+- Error details
+- Configuration changes
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [potrace](http://potrace.sourceforge.net/) for the vectorization algorithm
+- [Pillow](https://python-pillow.org/) for image processing
+- [tkinter](https://docs.python.org/3/library/tkinter.html) for the GUI framework
